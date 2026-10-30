@@ -4,7 +4,9 @@
 
 export function chunk(array, size = 1) {
   if (!Array.isArray(array)) return [];
-  // Bug (Issue #3): Non-positive size causes an infinite loop while iterating
+  if (typeof size !== "number" || !Number.isInteger(size) || size <= 0) {
+    throw new TypeError("Chunk size must be a positive integer greater than 0");
+  }
   const result = [];
   let i = 0;
   while (i < array.length) {

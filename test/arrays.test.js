@@ -7,6 +7,23 @@ test("chunk splits array into fixed chunks for positive sizes", () => {
   assert.deepStrictEqual(chunk([1, 2], 3), [[1, 2]]);
 });
 
+test("chunk throws TypeError when size is not a positive integer", () => {
+  assert.throws(
+    () => chunk([1, 2, 3], 0),
+    {
+      name: "TypeError",
+      message: "Chunk size must be a positive integer greater than 0"
+    }
+  );
+  assert.throws(
+    () => chunk([1, 2, 3], -1),
+    {
+      name: "TypeError",
+      message: "Chunk size must be a positive integer greater than 0"
+    }
+  );
+});
+
 test("unique removes duplicates from array", () => {
   assert.deepStrictEqual(unique([1, 2, 2, 3, 1]), [1, 2, 3]);
   assert.deepStrictEqual(unique([]), []);
