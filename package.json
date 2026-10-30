@@ -1,0 +1,32 @@
+{
+  "name": "rehearsal-toolkit",
+  "version": "1.0.0",
+  "description": "HackDay x Hacktoberfest rehearsal utility library and CLI",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "rehearsal": "./bin/cli.js"
+  },
+  "scripts": {
+    "start": "node bin/cli.js",
+    "test": "node --test",
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": [
+    "hackathon",
+    "hacktoberfest",
+    "rehearsal",
+    "utilities",
+    "cli"
+  ],
+  "author": "AhmEng09",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "eslint": "^9.18.0",
+    "globals": "^15.14.0"
+  }
+}
