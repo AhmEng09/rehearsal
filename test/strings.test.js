@@ -7,6 +7,11 @@ test("slugify converts standard strings to lowercase kebab-case", () => {
   assert.strictEqual(slugify("Foo Bar Baz"), "foo-bar-baz");
 });
 
+test("slugify strips trailing and leading hyphens from special characters", () => {
+  assert.strictEqual(slugify("Hello World!!"), "hello-world");
+  assert.strictEqual(slugify("---Hello World---"), "hello-world");
+});
+
 test("truncate shortens strings that exceed max length", () => {
   assert.strictEqual(truncate("Hello World", 8), "Hello...");
   assert.strictEqual(truncate("Short", 10), "Short");

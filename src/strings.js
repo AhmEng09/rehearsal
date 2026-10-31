@@ -4,11 +4,11 @@
 
 export function slugify(text) {
   if (typeof text !== "string") return "";
-  // Bug (Issue #1): Leading and trailing hyphens are not trimmed after replacement
   return text
     .toLowerCase()
     .trim()
-    .replace(/[^a-z0-9]+/g, "-");
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 export function truncate(text, maxLength, options = {}) {
